@@ -3,6 +3,7 @@ package dinero
 import (
 	"errors"
 	"fmt"
+	"github.com/shopspring/decimal"
 	"time"
 )
 
@@ -21,7 +22,7 @@ type UpdateResponse struct {
 	Timestamp int64
 	UpdatedAt time.Time
 	Base      string
-	Rates     map[string]float64
+	Rates     map[string]decimal.Decimal
 }
 
 // LatestRates will build and execute request to /latest.json using the base
