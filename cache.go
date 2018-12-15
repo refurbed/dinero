@@ -1,6 +1,9 @@
 package dinero
 
-import "time"
+import (
+	"github.com/shopspring/decimal"
+	"time"
+)
 
 // cache holds our our cached forex results for varying bases.
 var cache map[string]*RatesStore
@@ -23,7 +26,7 @@ func (s *CacheService) Get(base string) *RatesStore {
 }
 
 // Store will save our forex rates to a RatesStore.
-func (s *CacheService) Store(base string, rates map[string]float64) {
+func (s *CacheService) Store(base string, rates map[string]decimal.Decimal) {
 	// No cache? Initalize it.
 	if cache == nil {
 		cache = map[string]*RatesStore{}
